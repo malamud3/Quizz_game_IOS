@@ -16,6 +16,10 @@
 		A919BCE7283B736600EB8FF1 /* Quizz_game_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919BCE6283B736600EB8FF1 /* Quizz_game_IOSTests.swift */; };
 		A919BCF1283B736600EB8FF1 /* Quizz_game_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919BCF0283B736600EB8FF1 /* Quizz_game_IOSUITests.swift */; };
 		A919BCF3283B736600EB8FF1 /* Quizz_game_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919BCF2283B736600EB8FF1 /* Quizz_game_IOSUITestsLaunchTests.swift */; };
+		A919BD0C283B7B1300EB8FF1 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919BD0B283B7B1300EB8FF1 /* Question.swift */; };
+		A919BD0E283B7B2100EB8FF1 /* Quizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919BD0D283B7B2100EB8FF1 /* Quizz.swift */; };
+		A919BD11283BBE3A00EB8FF1 /* DataFormJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919BD10283BBE3A00EB8FF1 /* DataFormJson.swift */; };
+		A919BD13283BE01E00EB8FF1 /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919BD12283BE01E00EB8FF1 /* welcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		A919BCEC283B736600EB8FF1 /* Quizz_game_IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Quizz_game_IOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A919BCF0283B736600EB8FF1 /* Quizz_game_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz_game_IOSUITests.swift; sourceTree = "<group>"; };
 		A919BCF2283B736600EB8FF1 /* Quizz_game_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz_game_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A919BD0B283B7B1300EB8FF1 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		A919BD0D283B7B2100EB8FF1 /* Quizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz.swift; sourceTree = "<group>"; };
+		A919BD10283BBE3A00EB8FF1 /* DataFormJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormJson.swift; sourceTree = "<group>"; };
+		A919BD12283BE01E00EB8FF1 /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 		A919BCCE283B736400EB8FF1 /* Quizz_game_IOS */ = {
 			isa = PBXGroup;
 			children = (
+				A919BD0F283B7C3900EB8FF1 /* Models */,
 				A919BCCF283B736400EB8FF1 /* AppDelegate.swift */,
 				A919BCD1283B736400EB8FF1 /* SceneDelegate.swift */,
 				A919BCD3283B736400EB8FF1 /* ViewController.swift */,
@@ -106,6 +115,7 @@
 				A919BCD8283B736500EB8FF1 /* Assets.xcassets */,
 				A919BCDA283B736500EB8FF1 /* LaunchScreen.storyboard */,
 				A919BCDD283B736500EB8FF1 /* Info.plist */,
+				A919BD12283BE01E00EB8FF1 /* welcomeViewController.swift */,
 			);
 			path = Quizz_game_IOS;
 			sourceTree = "<group>";
@@ -125,6 +135,16 @@
 				A919BCF2283B736600EB8FF1 /* Quizz_game_IOSUITestsLaunchTests.swift */,
 			);
 			path = Quizz_game_IOSUITests;
+			sourceTree = "<group>";
+		};
+		A919BD0F283B7C3900EB8FF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A919BD0B283B7B1300EB8FF1 /* Question.swift */,
+				A919BD0D283B7B2100EB8FF1 /* Quizz.swift */,
+				A919BD10283BBE3A00EB8FF1 /* DataFormJson.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A919BCD4283B736400EB8FF1 /* ViewController.swift in Sources */,
+				A919BD0C283B7B1300EB8FF1 /* Question.swift in Sources */,
 				A919BCD0283B736400EB8FF1 /* AppDelegate.swift in Sources */,
 				A919BCD2283B736400EB8FF1 /* SceneDelegate.swift in Sources */,
+				A919BD0E283B7B2100EB8FF1 /* Quizz.swift in Sources */,
+				A919BD11283BBE3A00EB8FF1 /* DataFormJson.swift in Sources */,
+				A919BD13283BE01E00EB8FF1 /* welcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
