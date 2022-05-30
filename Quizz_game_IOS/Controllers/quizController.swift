@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class quizController: UIViewController {
     
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var btn_A: UIButton!
@@ -17,41 +17,53 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mainImg: UIImageView!
     
+    @IBOutlet weak var life: UILabel!
+    
+    @IBOutlet weak var score: UILabel!
     
     var quiz = Quizz()
+    var lifeData = 3
+    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
         updateUI()
- 
-
     }
 
     @IBAction func btnPressed(_ sender: UIButton) {
-
+        
               let userAnswer = sender.currentTitle!
               let userGotItRight = quiz.checkAnswer(userAnswer: userAnswer)
-              
+
               if userGotItRight {
                   sender.backgroundColor = UIColor.green
               } else {
                   sender.backgroundColor = UIColor.red
+                  updateLife()
               }
-      
+
               quiz.nextQuestion()
-              
               Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
-    
 
-    
+    func updateLife() {
+        lifeData-=1
+        if(lifeData==0){
+             goToResult()
+        }
+        life.text = "x\(String(lifeData))"
+    }
+
     @objc func updateUI() {
         updateBtnUI()
         updateProgressUI()
         updateImgUI()
+        updateScoreUI()
     }
+    
     func updateBtnUI(){
-        let answerChoices = quiz.getAnswers()
+        let answerChoices = quiz.getAnswers()!
+
         btn_A.setTitle(answerChoices[0], for: .normal)
         btn_B.setTitle(answerChoices[1], for: .normal)
         btn_C.setTitle(answerChoices[2], for: .normal)
@@ -67,15 +79,29 @@ class ViewController: UIViewController {
        mainImg.layer.borderColor = UIColor.black.cgColor
        mainImg.layer.cornerRadius = mainImg.frame.height/2
        mainImg.clipsToBounds = true
-       mainImg.loadFrom(URLAddress: "https://media.istockphoto.com/photos/red-apple-with-leaf-isolated-on-white-background-picture-id185262648?b=1&k=20&m=185262648&s=170667a&w=0&h=2ouM2rkF5oBplBmZdqs3hSOdBzA4mcGNCoF2P0KUMTM=")
+       mainImg.loadFrom(URLAddress: quiz.getUrl()!)
    }
     func updateProgressUI(){
         progressBar.progress = quiz.getProgress()
+        if(quiz.questionNumber == 14){
+            goToResult()
+        }
 
     }
-  
+    func goToResult(){
+        self.performSegue(withIdentifier: "goToResult", sender: self)
+    }
+    func updateScoreUI(){
+        score.text = " \(quiz.getScore())/15"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult"{
+            let resultVC = segue.destination as! resultViewController
+            resultVC.score = quiz.score!
+        }
+    }
 }
-
 
 
 extension UIImageView {
@@ -83,7 +109,7 @@ extension UIImageView {
         guard let url = URL(string: URLAddress) else {
             return
         }
-        
+
         DispatchQueue.main.async { [weak self] in
             if let imageData = try? Data(contentsOf: url) {
                 if let loadedImage = UIImage(data: imageData) {
@@ -93,3 +119,6 @@ extension UIImageView {
         }
     }
 }
+
+
+

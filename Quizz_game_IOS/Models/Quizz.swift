@@ -5,53 +5,51 @@
 //  Created by Amir Malamud on 15/05/2022.
 //
 
-import Foundation
 import UIKit
 
-struct Quizz{
+struct Quizz: Codable{
     
-    var questionNumber = 0
-    var score = 0
-    let dataURL = "https://api.jsonbin.io/b/628b7222402a5b3802099b9f/3"
-    var quiz =
-    [Question( url:"a" , a:["a","b","c","d"] , correctAnswer:"a"),
-     Question( url:"a" , a:["a","b","c","d"] , correctAnswer:"a"),
-    ]
-    
-    init(){
-    }
+    var questionNumber:Int? = 0
+    var score:Int? = 0
+    var Question:[Question]? = []
+   
 
-
-    
-    func getAnswers() -> [String] {
-        return quiz[questionNumber].answers
-    }
-    
-    func getProgress() -> Float {
-        return Float(questionNumber) / Float(quiz.count)
-    }
-    
-    mutating func getScore() -> Int {
-        return score
-    }
-    
-     mutating func nextQuestion() {
+    func getAnswers() -> [String]!  {
         
-        if questionNumber + 1 < quiz.count {
-            questionNumber += 1
+        return Question?[questionNumber!].answers!
+    }
+
+    func getUrl() -> String! {
+        return Question?[questionNumber!].imgUrl!
+    }
+
+
+
+    func getProgress() -> Float {
+        return Float(questionNumber!) / Float(Question!.count)
+    }
+
+    mutating func getScore() -> Int {
+        return score!
+    }
+
+     mutating func nextQuestion() {
+
+        if questionNumber! + 1 < Question!.count {
+            questionNumber! += 1
         } else {
-            questionNumber = 0
+            questionNumber! = 0
         }
     }
-    
+
     mutating func checkAnswer(userAnswer: String) -> Bool {
         //Need to change answer to rightAnswer here.
-        if userAnswer == quiz[questionNumber].rightAnswer {
-            score += 1
+        if userAnswer == Question?[questionNumber!].rightAnswer {
+            score! += 1
             return true
         } else {
             return false
         }
     }
-    
+
 }

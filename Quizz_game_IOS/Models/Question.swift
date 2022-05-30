@@ -8,13 +8,12 @@ import Foundation
 
 struct Question: Codable {
     
-    let rightAnswer: String
-    let imgUrl:String?
-    let answers: [String]
+    var rightAnswer: String?
+    var imgUrl:String?
+    var answers:[String]?
     
-    init(url: String, a: [String], correctAnswer: String) {
-        self.imgUrl = url
-        self.answers = a
-        self.rightAnswer = correctAnswer
-    }
+    
 }
+
+
+
