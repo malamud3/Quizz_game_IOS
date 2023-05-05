@@ -2,6 +2,8 @@
 
 This is an iOS app that allows users to play a trivia game where they have to guess the name of a picture. The app displays an image and a series of multiple-choice questions and keeps track of the user's score.
 
+![Alt Text](https://media.giphy.com/media/4zL04bt17EZYOUGaQn/giphy.gif)
+
 ### *Prerequisites*
 
 To run the app, you will need Xcode installed on your machine.
