@@ -23,7 +23,3 @@ The app was built using the following technologies:
 * Swift
 * UIKit
 * JSON
-
-### Authors
-
-Amir Malamud
